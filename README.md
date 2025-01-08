@@ -1,2 +1,2 @@
-# stark-escrow-backend
-Stark-Escrow backend
+# escrownet-backend
+Escrownet backend
