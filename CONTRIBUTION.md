@@ -40,7 +40,7 @@ Issues are used to report bugs, request features, or discuss potential changes b
 
 #### Solve an issue
 
-Explore our [existing issues](https://github.com/EscrowNet/escrownet-dapp/issues) to find one that interests you. If you want to work on an issue, express your interest, and it may be assigned to you.
+Explore our [existing issues](https://github.com/EscrowNet/escrownet-backend/issues) to find one that interests you. If you want to work on an issue, express your interest, and it may be assigned to you.
 
 #### Create a new issue
 
