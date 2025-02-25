@@ -4,7 +4,8 @@
   "description": "## Overview EscrowNet is a decentralized application (dApp) and API that enables secure escrow payments on the Starknet network. It provides a trustless environment for conducting transactions between parties by holding assets in escrow until predefined conditions are met.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "keywords": [],
   "author": "",
