@@ -1,27 +1,52 @@
-import { IsString, IsNumber, IsNotEmpty, IsDateString } from "class-validator";
+import { IsNotEmpty, IsString, IsNumber, IsEnum, IsOptional, Min, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { EscrowType } from '../entities/escrow.entity';
+
+export class ReleaseConditionDto {
+  @IsString()
+  @IsNotEmpty()
+  type: string;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => Object)
+  parameters?: Record<string, any>;
+}
 
 export class CreateEscrowDto {
-    @IsString()
-    @IsNotEmpty()
-    sellerAddress: string;
+  @IsString()
+  @IsNotEmpty()
+  buyerAddress: string;
 
-    @IsString()
-    @IsNotEmpty()
-    buyerAddress: string;
+  @IsString()
+  @IsNotEmpty()
+  sellerAddress: string;
 
-    @IsNumber()
-    @IsNotEmpty()
-    amount: number;
+  @IsNumber()
+  @Min(0)
+  amount: number;
 
-    @IsString()
-    @IsNotEmpty()
-    tokenAddress: string;
+  @IsString()
+  @IsNotEmpty()
+  currency: string;
 
-    @IsDateString()
-    @IsNotEmpty()
-    deadline: string;
+  @IsEnum(EscrowType)
+  type: EscrowType;
 
-    @IsString()
-    @IsNotEmpty()
-    conditions: string;
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => ReleaseConditionDto)
+  releaseConditions?: ReleaseConditionDto[];
+
+  @IsOptional()
+  @IsString()
+  arbitratorAddress?: string;
+
+  @IsOptional()
+  @Type(() => Date)
+  releaseDate?: Date;
+
+  @IsOptional()
+  @Type(() => Date)
+  expiryDate?: Date;
 }
